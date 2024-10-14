@@ -4,10 +4,24 @@
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#{{content.app_name}}-{{app}}-one" aria-expanded="true"
                 aria-controls="{{content.app_name}}-{{app}}-one">
-                Parameter
+                Options
             </button>
         </h2>
         <div id="{{content.app_name}}-{{app}}-one" class="accordion-collapse collapse">
+            <div class="options" {% if "-detail" in content.app_name %} href="{% url content.app_name 1 %}" {%else%}
+                href="{% url content.app_name %}" {% endif %}>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#{{content.app_name}}-{{app}}-two" aria-expanded="true"
+                aria-controls="{{content.app_name}}-{{app}}-two">
+                Parameter
+            </button>
+        </h2>
+        <div id="{{content.app_name}}-{{app}}-two" class="accordion-collapse collapse">
             {% if app == "create" %}
             <div class="alert text-bg-primary m-0 px-3 py-2 d-flex align-items-center justify-content-center m-3"
                 role="alert">
@@ -60,12 +74,12 @@
     <div class="accordion-item">
         <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#{{content.app_name}}-{{app}}-two" aria-expanded="false"
-                aria-controls="{{content.app_name}}-{{app}}-two">
+                data-bs-target="#{{content.app_name}}-{{app}}-three" aria-expanded="false"
+                aria-controls="{{content.app_name}}-{{app}}-three">
                 Responses
             </button>
         </h2>
-        <div id="{{content.app_name}}-{{app}}-two" class="accordion-collapse collapse">
+        <div id="{{content.app_name}}-{{app}}-three" class="accordion-collapse collapse">
             {% include 'quick_docs_drf/bootstrap/response.html' %}
         </div>
     </div>

@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, RedirectView
 from typing import Any
 from quick_docs_drf import context as context_utils
 
@@ -15,3 +15,13 @@ class DocumentationView(TemplateView):
 
 
 documentation_view = DocumentationView.as_view()
+
+class DocumentationSchemaView(RedirectView):
+    pattern_name = "quick-schema"
+    permanent = True
+    query_string = True
+
+
+
+
+documentation_schema_view = DocumentationSchemaView.as_view()

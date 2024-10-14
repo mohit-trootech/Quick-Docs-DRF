@@ -13,18 +13,17 @@ class QuickDocsViewsets:
     Generate Quick Docs Menu Context
     """
 
-    def __init__(self) -> None:
-        self.context: list = []
+    context: list = None
 
     def get_context_viewsets(self):
         """
         Generate Quick Docs Viewset Context
         """
         # Get Base Router from Default Setting
+        self.context = []
         viewsets = DEFAULT.get("VIEWSET_LISTS")
         if viewsets is None:
             raise ImproperlyConfigured("VIEWSET_LISTS not found in settings.py")
-
         for viewset in viewsets:
             viewset = import_string(viewset)
             self.context.append(

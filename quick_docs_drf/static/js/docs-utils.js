@@ -46,4 +46,16 @@ $(document).ready(() => {
   if (window.localStorage.getItem("Authorization")) {
     $("#authorizeModalButton").html("Authorized");
   }
+  loadOptions();
 });
+
+function docsOptionLoading(content) {
+  console.log(content);
+}
+
+function loadOptions(content) {
+  const elems = document.querySelectorAll(".options");
+  elems.forEach((elem) => {
+    docsOptionRequest(elem.getAttribute("href"), docsOptionLoading, null);
+  });
+}
